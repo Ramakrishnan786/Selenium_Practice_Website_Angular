@@ -1,0 +1,12 @@
+{
+  "routes": {
+    "/Selenium_Practice_Website_Angular": {},
+    "/Selenium_Practice_Website_Angular/dashboard": {},
+    "/Selenium_Practice_Website_Angular/dashboard/double-click": {},
+    "/Selenium_Practice_Website_Angular/dashboard/drag-drop": {},
+    "/Selenium_Practice_Website_Angular/dashboard/right-click": {},
+    "/Selenium_Practice_Website_Angular/dashboard/single-click": {},
+    "/Selenium_Practice_Website_Angular/login": {},
+    "/Selenium_Practice_Website_Angular/signup": {}
+  }
+}

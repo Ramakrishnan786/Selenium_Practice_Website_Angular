@@ -1,0 +1,144 @@
+@import '../../../../../styles/background';
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  @extend .selenium-pattern;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  @extend .selenium-overlay;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+
+  h2 {
+    color: #00AC55;
+    margin: 0 0 10px;
+    font-size: 24px;
+  }
+
+  p {
+    color: #666;
+    margin: 0;
+  }
+}
+
+.login-form {
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e1e1e1;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: #00AC55;
+      }
+
+      &.error {
+        border-color: #ff4444;
+      }
+    }
+  }
+
+  .error-message {
+    color: #ff4444;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .error-container {
+    background-color: #fff5f5;
+    border: 1px solid #ffe5e5;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    .error-message {
+      color: #ff4444;
+      margin-bottom: 10px;
+    }
+
+    .hint-button {
+      background: none;
+      border: none;
+      color: #00AC55;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0;
+      font-size: 14px;
+
+      &:hover {
+        color: darken(#00AC55, 10%);
+      }
+    }
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #00AC55;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken(#00AC55, 5%);
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+
+  .link-button {
+    background: none;
+    border: none;
+    color: #00AC55;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0 5px;
+    font-size: inherit;
+
+    &:hover {
+      color: darken(#00AC55, 10%);
+    }
+  }
+}

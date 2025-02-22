@@ -1,0 +1,54 @@
+<div class="login-container selenium-pattern">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Login to Selenium Automation</h2>
+      <p>Enter your credentials to continue</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          [class.error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+        />
+        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          {{ getErrorMessage('email') }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+        />
+        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          {{ getErrorMessage('password') }}
+        </div>
+      </div>
+
+      <div class="error-container" *ngIf="errorMessage">
+        <div class="error-message">{{ errorMessage }}</div>
+        <button type="button" class="hint-button" *ngIf="showCredentialHint" (click)="showValidCredentials()">
+          Show Valid Credentials
+        </button>
+      </div>
+
+      <button type="submit" class="submit-button" [disabled]="isLoading">
+        {{ isLoading ? 'Logging in...' : 'Login' }}
+      </button>
+
+      <div class="signup-link">
+        <span>Don't have an account?</span>
+        <button type="button" class="link-button" (click)="navigateToSignup()">Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>

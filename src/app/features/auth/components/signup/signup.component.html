@@ -1,0 +1,111 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <h2>Selenium Automation</h2>
+    <p class="subtitle">Create your Selenium Automation Account</p>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+            placeholder="Enter your first name"
+            [class.error]="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched"
+          />
+          <span class="error-message" *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched">
+            {{ getErrorMessage('firstName') }}
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+            placeholder="Enter your last name"
+            [class.error]="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched"
+          />
+          <span class="error-message" *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched">
+            {{ getErrorMessage('lastName') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          [class.error]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
+        />
+        <span class="error-message" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+          {{ getErrorMessage('email') }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Create a password"
+          [class.error]="signupForm.get('password')?.invalid && signupForm.get('password')?.touched"
+        />
+        <span class="error-message" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          {{ getErrorMessage('password') }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          placeholder="Confirm your password"
+          [class.error]="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched"
+        />
+        <span class="error-message" *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched">
+          {{ getErrorMessage('confirmPassword') }}
+        </span>
+      </div>
+
+      <div class="form-group terms">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            formControlName="acceptTerms"
+            [class.error]="signupForm.get('acceptTerms')?.invalid && signupForm.get('acceptTerms')?.touched"
+          />
+          <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+        </label>
+        <span class="error-message" *ngIf="signupForm.get('acceptTerms')?.invalid && signupForm.get('acceptTerms')?.touched">
+          {{ getErrorMessage('acceptTerms') }}
+        </span>
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="signupForm.invalid || isLoading"
+        class="signup-button"
+      >
+        <span *ngIf="!isLoading">Create Account</span>
+        <span *ngIf="isLoading">Creating Account...</span>
+      </button>
+
+      <div class="error-alert" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="login-link">
+      Already have an account? <a (click)="navigateToLogin()">Sign in</a>
+    </div>
+  </div>
+</div>
